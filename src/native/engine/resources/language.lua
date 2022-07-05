@@ -20,6 +20,12 @@ language = {
             description = "An error has found during initialization process",
             info = "not found a valid bootable image",
             backStr = "press enter to restart"
+        },
+        outdatedEngine = {
+            title = "Warning",
+            description = "You are running a outdated version of the engine",
+            description2 = "press enter to go to page and download the lastest version",
+            description3 = "or press escape to ignore this warn"
         }
     },
     br = {
@@ -43,6 +49,12 @@ language = {
             description = "um erro foi encontrado durante a inicializacao",
             info = "nao foi encontrado um arquivo valido para inciar",
             backStr = "pressione enter para reiniciar"
+        },
+        outdatedEngine = {
+            title = "Aviso",
+            description = "Voce esta utilizando a versao desatualizada da engine",
+            description2 = "pressione enter para ir para a pagina de download",
+            description3 = "ou pressione escape para ignorar este aviso"
         }
     },
     es = {
@@ -66,32 +78,14 @@ language = {
             description = "se encontro un error durante el inicio",
             info = "no se encontro una imagen de arranque válida",
             backStr = "presiona enter para reiniciar"
+        },
+        outdatedEngine = {
+            title = "Warning",
+            description = "You are running a outdated version of the engine",
+            description2 = "press enter to go to page and download the lastest version",
+            description3 = "or press escape to ignore this warn"
         }
     },
-    it = {
-        noDisk = {
-            line1 = "nessun gioco e stato caricato",
-            line2 = "per favore inserisci un gioco valido",
-            bootSelect = "premere delete per selezionare un gioco"
-        },
-        firstBoot = {
-            line1 = "Benvenuto",
-            line2 = "al litium"
-        },
-        bootSelection = {
-            title = "selezione dello stivale",
-            description = "seleziona un disco da avviare",
-            noDisksInstalled = "nessun disco e stato rilevato",
-            back = "escape per tornare"
-        },
-        bootError = {
-            title = "Litium Boot system",
-            description = "e stato rilevato un errore durante il processo di inizializzazione",
-            info = "non e stata trovata un immagine di avvio valida",
-            backStr = "premere enter per riavviare"
-        }
-        
-    }
 }
 
 return language

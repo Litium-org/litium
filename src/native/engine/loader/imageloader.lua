@@ -6,7 +6,6 @@ newFile             = love.filesystem.newFile
 createDirectory     = love.filesystem.createDirectory
 
 SaveDir             = love.filesystem.getSaveDirectory()
-print(SaveDir)
 
 defaultSettings = [[
 return {
@@ -30,7 +29,7 @@ end
 function createImageFile()
     file = newFile("image.txt")
     file:open("w")
-    file:write("native")
+    file:write("-native")
     file:close()
 end
 
@@ -83,8 +82,7 @@ function imageloader.getImage()     --get operating system name image (folder)
     gameName = imageFileName:read()
     data = engineConfigFile()
 
-    -- old
-    if gameName == "nil" or gameName == nil or gameName == "" or gameName == "native" then
+    if gameName == "nil" or gameName == nil or gameName == "" or gameName == "-native" then
         if exist("file", "firstboot.txt") then
             imagedata, err = load("src/native/sources/boot.lua")
 
@@ -108,7 +106,22 @@ function imageloader.getImage()     --get operating system name image (folder)
             imagedata, err = load("src/native/sources/errstate.lua")
         end
     end
+    if gameName == "-warnoutdate" then
+        imagedata, err = load("src/native/sources/bios_updatewarn.lua")
+
+        if imagedata == nil then
+            
+            error(err, 2)
+        end
+    end
+    
+
     return imagedata
+end
+
+function imageloader.getCurrentImageName()
+    currentImage = io.open(saveDir .. "/image.txt", "r")
+    return currentImage:read()
 end
  
 function imageloader.changeImageName(image)

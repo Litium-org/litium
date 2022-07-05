@@ -34,7 +34,7 @@ end
     lang = settings.getvalue("engine.lua", "bios_language")
     diskList = diskcheck.init()
 
-    litsystem.setName("Litium [BETA] v0.2 - Blue Garnet [NO GAME LOADED]")
+    litsystem.setName("Litium [BETA] v0.3 - Jadeite [NO GAME LOADED]")
 
     sprPallete = {
         {0,0,0,0},      -- transparent color
@@ -215,7 +215,7 @@ function keydown(k)
         end
         if k == "return" then
             imageloader.changeImageName(diskList[selection])
-            litgame.quit("restart")
+            litgame.restart()
         end
     end
 end

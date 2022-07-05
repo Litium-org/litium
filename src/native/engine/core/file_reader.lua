@@ -2,7 +2,7 @@ fileReader = {}
 
 
 function fileReader.getvalue(filename, valuename)
-	engineConfigFile = load(filename)
+	engineConfigFile, err = load(filename)
     data = engineConfigFile()
 	return data[valuename]
 end

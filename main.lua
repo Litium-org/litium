@@ -1,19 +1,22 @@
 
 function love.load()
-    nativelocks = require 'src/native/engine/core/nativelocks'
-    imageloader = require 'src/native/engine/loader/imageloader'
-    save = require 'src/native/engine/core/save_handler'
-    pluginmanager = require 'src/native/engine/plugin/pluginmngr'
-    language = require 'src/native/engine/resources/language'
-    utils = require 'src/native/engine/resources/utils'
-    request = require 'src/native/engine/core/request'
-    versionCheck = require 'src/native/engine/core/bios_versionCheck'
-
-    engine_currentVersion = "0.0.1"
-    code, server_CurrentVersion = request.newRequest("https://raw.githubusercontent.com/Doge2Dev/LitiumVM/master/.litversion")
+    nativelocks         = require 'src/native/engine/core/nativelocks'
+    imageloader         = require 'src/native/engine/loader/imageloader'
+    save                = require 'src/native/engine/core/save_handler'
+    pluginmanager       = require 'src/native/engine/plugin/pluginmngr'
+    language            = require 'src/native/engine/resources/language'
+    utils               = require 'src/native/engine/resources/utils'
+    request             = require 'src/native/engine/core/request'
+    version             = require 'src/thirdparty/version'
+    utils               = require 'src/native/engine/resources/utils'
+    versionCheck        = require 'src/native/engine/core/bios_versionCheck'
 
     btnPressedCount = 0
     love.keyboard.setKeyRepeat(true)
+
+    -- engine version system
+    engineVersion = "0.0.2"
+    code, serverEngineVersion = request.newRequest("https://raw.githubusercontent.com/Litium-org/litium/master/.litversion")
 
     nativelocks.lock()
 
@@ -34,8 +37,20 @@ function love.load()
     imageloader.init()
     imagedata = imageloader.getImage()
 
-    test = versionCheck.doCheck(engine_currentVersion, server_CurrentVersion)
-    print(test)
+    theValue = versionCheck.doCheck(engineVersion, serverEngineVersion)
+    print(theValue)
+
+
+
+    if theValue then
+        if imageloader.getCurrentImageName() ~= "-warnoutdate" then
+            if not utils.exist("file", ".litignored") then
+                imageloader.changeImageName("-warnoutdate")
+                versionCheck.ignored()
+                litgame.restart()
+            end
+        end
+    end
 
     pcall(imagedata(), start())
 end
@@ -59,7 +74,7 @@ function love.keypressed(k, scancode, isRepeat)
             print(btnPressedCount)
             btnPressedCount = btnPressedCount + 1
             if btnPressedCount > 20 then
-                imageloader.changeImageName("native")
+                imageloader.changeImageName("-native")
                 love.event.quit("restart")
             end
         end
