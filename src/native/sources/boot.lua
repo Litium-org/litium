@@ -109,10 +109,17 @@ end
     cursorY = 200
 
     frame = 1
+    txtFrame = 1
     Timer = 0
     
     litgraphics.loadPallete(sprPallete)
     heart = settings.getvalue("engine.lua", "bios_heart")
+
+    -- version Check
+    engineVer = settings.getvalue("engine.lua", "bios_version")
+    code, serverEngineVersion = request.newRequest("https://raw.githubusercontent.com/Litium-org/litium/master/.litversion")
+
+    isOutdated = versionCheck.doCheck(engineVer, serverEngineVersion)
 end
 
 function render()
@@ -124,6 +131,18 @@ function render()
             litgraphics.newSprite(logo, 16, 60, 60)
         else
             litgraphics.newSprite(Heart, 16, 60, 60, heartPallete)
+        end
+
+        -- custom blinking text
+        if isOutdated then
+            if txtFrame == 1 then
+                litgraphics.newText(language[lang].noDisk.outdatedVersion, 0, 2, 2, 1, 1)
+                litgraphics.newText(language[lang].noDisk.outdatedVersion, 0, 0, 2, 3, 1)
+            end
+            if txtFrame == 2 then
+                litgraphics.newText(language[lang].noDisk.outdatedVersion, 0, 2, 2, 1, 1)
+                litgraphics.newText(language[lang].noDisk.outdatedVersion, 0, 0, 2, 4, 1)
+            end
         end
     
         litgraphics.newText(language[lang].noDisk.line1, 230, 306, 6, 1, 1)
@@ -162,9 +181,13 @@ function update(dt)
         Timer = Timer + 1
         if Timer > 10 then
             Timer = 0
+            txtFrame = txtFrame + 1
             frame = frame + 1
             if frame > #shine then
                 frame = 1
+            end
+            if txtFrame > 2 then
+                txtFrame = 1
             end
         end
     end

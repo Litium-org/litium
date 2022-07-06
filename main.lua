@@ -9,13 +9,14 @@ function love.load()
     request             = require 'src/native/engine/core/request'
     version             = require 'src/thirdparty/version'
     utils               = require 'src/native/engine/resources/utils'
+    settings            = require 'src/native/engine/core/file_reader'
     versionCheck        = require 'src/native/engine/core/bios_versionCheck'
 
     btnPressedCount = 0
     love.keyboard.setKeyRepeat(true)
 
     -- engine version system
-    engineVersion = "0.0.3"
+    engineVersion = "0.0.2"
     code, serverEngineVersion = request.newRequest("https://raw.githubusercontent.com/Litium-org/litium/master/.litversion")
 
     nativelocks.lock()

@@ -4,6 +4,7 @@ language = {
             line1 = "no game has been loaded",
             line2 = "Please insert a valid disk game",
             bootSelect = "press delete to select a game",
+            outdatedVersion = "This version is outdated"
         },
         firstBoot = {
             line1 = "welcome",
@@ -33,6 +34,7 @@ language = {
             line1 = "nenhum jogo foi carregado",
             line2 = "por favor insira um jogo valido",
             bootSelect = "pressione delete para selecionar um jogo",
+            outdatedVersion = "esta versao esta desatualizada"
         },
         firstBoot = {
             line1 = "bem vindo",
@@ -61,7 +63,8 @@ language = {
         noDisk = {
             line1 = "no se cargaron juegos",
             line2 = "por favor ingrese un juego valido",
-            bootSelect = "presione delete para seleccionar un juego"
+            bootSelect = "presione delete para seleccionar un juego",
+            outdatedVersion = "esta versión es antigua"
         },
         firstBoot = {
             line1 = "Bienvenido",
@@ -80,10 +83,10 @@ language = {
             backStr = "presiona enter para reiniciar"
         },
         outdatedEngine = {
-            title = "Warning",
-            description = "You are running a outdated version of the engine",
-            description2 = "press enter to go to page and download the lastest version",
-            description3 = "or press escape to ignore this warn"
+            title = "Advertencia",
+            description = "Está ejecutando una versión obsoleta del engine",
+            description2 = "presione enter para ir a la página y descargar la última versión",
+            description3 = "o presione escape para ignorar esta advertencia"
         }
     },
 }

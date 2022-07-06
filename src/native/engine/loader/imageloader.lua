@@ -10,7 +10,6 @@ SaveDir             = love.filesystem.getSaveDirectory()
 defaultSettings = [[
 return {
     -- Litium Engine configuration script --
-    -- Version 0.2 --
     bios_version = "0.0.3",
     bios_language = "en",
     bios_splash = true,
