@@ -15,10 +15,21 @@ You can download this source code and build it on your machine.
 ### STATBILITY WARNING:
 > This project is constantly development, so scripts and functions can be added, removed, renamed or moved to other parts, please check for the most recently version of source to not have compatibility issues.
 
-## Building
+## Building Windows
 - [ 1 ] - Make sure you have Love2D 11.4 Mysterious Mysteries installed and setup with %path%, to see if you have set up correclty open your terminal and type "love" if it open a screen with no game means it all working correctly.
 
 - [ 2 ] - on your terminal run boot.cmd or click 2 times on .cmd file to run the current version of the project.
+
+## Building Linux
+<p> Install <strong>love ^11.4 </strong>  
+dependency </p>
+
+### Arch based
+> sudo pacman -S love
+### Debian
+> sudo apt install love
+### Fedora
+> sudo dnf install love
 
 # Contributions
 You can contribute with the development of engine by clonning this repository with the most recent version of code and make your changes.
