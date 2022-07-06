@@ -1,3 +1,4 @@
 .gitignore
 push.lua
 push.cmd
+build.sh
