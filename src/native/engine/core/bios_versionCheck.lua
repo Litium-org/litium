@@ -17,15 +17,15 @@ function versionCheck.doCheck(version1, version2)
     _Version2Patch = _version2[3]
 
 
-    if _Version1Major ~= _Version2Major then
+    if _Version1Major < _Version2Major then
         print(_Version1Major, _Version2Major)
         return false
     else
-        if _Version1Minor ~= _Version2Minor then
+        if _Version1Minor < _Version2Minor then
             print(_Version1Minor, _Version2Minor)
             return false
         else
-            if _Version1Patch ~= _Version2Patch then
+            if _Version1Patch < _Version2Patch then
                 print(_Version1Patch, _Version2Patch)
             else
                 return false
