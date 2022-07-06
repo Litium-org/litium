@@ -25,9 +25,10 @@ You can contribute with the development of engine by clonning this repository wi
 
 Everyone who helps will be credited here (social media or Github page)
 
+[Here the list of eveyone who contribute with engine development](./CONTRIBUTORS.MD)
+
 # Library credits
 This engine use some third party libraries, here the credits for they amazing work :D
-
 > ### [HUMP - vrld](https://github.com/vrld/hump)
 > ### [Json.lua - rxi](https://github.com/rxi/json.lua)
 > ### [Penlight lib - lunarmodules](https://github.com/lunarmodules/Penlight)
