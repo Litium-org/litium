@@ -42,7 +42,7 @@ end
 
 function keydown(k)
     if k == "return" then
-        imageloader.changeImageName("native")
+        imageloader.changeImageName("-native")
         litgame.restart()
     end
 end

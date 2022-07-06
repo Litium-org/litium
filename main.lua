@@ -15,7 +15,7 @@ function love.load()
     love.keyboard.setKeyRepeat(true)
 
     -- engine version system
-    engineVersion = "0.0.2"
+    engineVersion = "0.0.3"
     code, serverEngineVersion = request.newRequest("https://raw.githubusercontent.com/Litium-org/litium/master/.litversion")
 
     nativelocks.lock()

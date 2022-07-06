@@ -58,7 +58,6 @@ function nativelocks.lock()
     love.audio.getVolume = false
     love.audio.isEffectsSupported = false
     love.audio.newQueueableSource = false
-    love.audio.newSource = false
     love.audio.pause = false
     love.audio.play = false
     love.audio.setActiveEffects = false

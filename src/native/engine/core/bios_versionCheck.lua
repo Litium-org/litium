@@ -8,22 +8,31 @@ function versionCheck.doCheck(version1, version2)
     -- get internet version
     _version2 = stringx.split(version2, ".")
 
+    _Version1Major = _version1[1]
+    _Version1Minor = _version1[2]
+    _Version1Patch = _version1[3]
 
-    if _version1[1] ~= _version2[1] then
-        return true
+    _Version2Major = _version2[1]
+    _Version2Minor = _version2[2]
+    _Version2Patch = _version2[3]
+
+
+    if _Version1Major ~= _Version2Major then
+        print(_Version1Major, _Version2Major)
+        return false
     else
-        if _version1[2] ~= _version2[2] then
-            return true
+        if _Version1Minor ~= _Version2Minor then
+            print(_Version1Minor, _Version2Minor)
+            return false
         else
-            if _version1[3] ~= _version2[3] then
-                 return true
+            if _Version1Patch ~= _Version2Patch then
+                print(_Version1Patch, _Version2Patch)
+            else
+                return false
             end
         end
-        return false
     end
-
-    -- check em up XD
-
+    return true
 end
 
 function versionCheck.ignored()

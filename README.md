@@ -20,17 +20,6 @@ You can download this source code and build it on your machine.
 
 - [ 2 ] - on your terminal run boot.cmd or click 2 times on .cmd file to run the current version of the project.
 
-## Linux
-<p> Install <strong>love ^11.4 </strong>  
-dependency </p>
-
-### Arch based
-> sudo pacman -S love
-### Debian
-> sudo apt install love
-### Fedora
-> sudo dnf install love
-
 # Contributions
 You can contribute with the development of engine by clonning this repository with the most recent version of code and make your changes.
 
@@ -45,4 +34,3 @@ This engine use some third party libraries, here the credits for they amazing wo
 > ### [Chrono - a327ex](https://github.com/a327ex/chrono/blob/master/Timer.lua)
 > ### [lBase64 - iskolbin](https://github.com/iskolbin/lbase64)
 > ### [Version - Kong](https://github.com/Kong/version.lua)
-

@@ -70,7 +70,7 @@ function update(dt)
     end
     if state > 450 then
         firstFile()
-        litgame.quit("restart")
+        litgame.restart()
     end
 end
 

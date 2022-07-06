@@ -1,2 +1,3 @@
-debug/
-test/
+.gitignore
+push.lua
+push.cmd
