@@ -45,4 +45,3 @@ This engine use some third party libraries, here the credits for they amazing wo
 > ### [Penlight lib - lunarmodules](https://github.com/lunarmodules/Penlight)
 > ### [Chrono - a327ex](https://github.com/a327ex/chrono/blob/master/Timer.lua)
 > ### [lBase64 - iskolbin](https://github.com/iskolbin/lbase64)
-> ### [Version - Kong](https://github.com/Kong/version.lua)
