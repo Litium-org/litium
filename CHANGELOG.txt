@@ -12,3 +12,14 @@ Changelogs
 
 - Save handler
 - "WindowColor" function removed from render
+
+ - {0.0.3} [Jadeite]
+
+- API Updates
+- Sound API (litsound module) updated with more functions
+    - newWaveFrequency()
+    - playTrackFromFile()
+    - :pause()
+    - :resume()
+- litgraphics.loadSpriteFile() now supports Json with indentation
+- Added version checker system (make sure to connect to internet to do this verification)

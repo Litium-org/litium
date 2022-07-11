@@ -4,7 +4,7 @@ json = require 'src/thirdparty/json'
 
 function texture.loadfile(path)
     file = io.open(path, "r")
-    return json.decode(file:read())
+    return json.decode(file:read("*all"))
 end
 
 --[[
