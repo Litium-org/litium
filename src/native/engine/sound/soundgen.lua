@@ -16,13 +16,13 @@ oldtones = {
 }
 
 tones = {
-    264,
-    297,
-    330,
-    352,
-    396,
-    440,
-    495
+    264,    -- C
+    297,    -- D
+    330,    -- E
+    352,    -- F
+    396,    -- G
+    440,    -- A
+    495     -- B
 }
 
 function soundgen.newWave(waveLength, tone, waveType)
