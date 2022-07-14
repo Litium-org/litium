@@ -15,7 +15,7 @@ savedSection = 0
 --- @param waveLength number
 --- @param frequency number
 --- @param waveType string
-function litsound.newWave(waveLength, frequency, waveType)
+function litsound.newWaveFrequency(waveLength, frequency, waveType)
     sounddriver.newWaveFrequency(waveLength, frequency, waveType)
 end
 
