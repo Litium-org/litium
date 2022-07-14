@@ -22,4 +22,5 @@ Changelogs
     - :pause()
     - :resume()
 - litgraphics.loadSpriteFile() now supports Json with indentation
+- litsound.playTrackFromFile() supports indentation
 - Added version checker system (make sure to connect to internet to do this verification)
