@@ -43,5 +43,6 @@ This engine use some third party libraries, here the credits for they amazing wo
 > ### [HUMP - vrld](https://github.com/vrld/hump)
 > ### [Json.lua - rxi](https://github.com/rxi/json.lua)
 > ### [Penlight lib - lunarmodules](https://github.com/lunarmodules/Penlight)
+> ### [Json.lua (New Implementation) - Actboy168](https://github.com/actboy168/json.lua)
 > ### [Chrono - a327ex](https://github.com/a327ex/chrono/blob/master/Timer.lua)
 > ### [lBase64 - iskolbin](https://github.com/iskolbin/lbase64)
