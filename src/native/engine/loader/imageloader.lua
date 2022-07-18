@@ -17,6 +17,14 @@ return {
 }
 ]]
 
+litplugins = [[
+return {
+    plugins = {
+        
+    }
+}
+]]
+
 
 function createSettingsFile()
     file = newFile("engine.lua")
@@ -29,6 +37,13 @@ function createImageFile()
     file = newFile("image.txt")
     file:open("w")
     file:write("-native")
+    file:close()
+end
+
+function createPluginsFile()
+    file = newFile(".litplugins")
+    file:open("w")
+    file:write(litplugins)
     file:close()
 end
 
@@ -60,6 +75,7 @@ end
 function imageloader.init()
     fileExist = exist("file", "engine.lua")
     imageExist = exist("file", "image.txt")
+    pluginsFile = exist("file", ".litplugins")
     dirExist = exist("folder", "disk")
     pluginExist = exist("folder", "plugins")
     projects = exist("folder", "projects")
@@ -67,6 +83,7 @@ function imageloader.init()
     if not fileExist or not dirExist or not pluginExist or not projects or not imageExist or not saveExist then
         createSettingsFile()
         createImageFile()
+        createPluginsFile()
         createEngineFolders()
     end
 end
@@ -107,6 +124,14 @@ function imageloader.getImage()     --get operating system name image (folder)
     end
     if gameName == "-warnoutdate" then
         imagedata, err = load("src/native/sources/bios_updatewarn.lua")
+
+        if imagedata == nil then
+            
+            error(err, 2)
+        end
+    end
+    if gameName == "-debug" then
+        imagedata, err = load("src/native/sources/debugstate.lua")
 
         if imagedata == nil then
             

@@ -18,6 +18,7 @@ function utils.exist(type, filename)
     end
 end
 
+
 function utils.saveDirectory()
     return love.filesystem.getSaveDirectory()
 end

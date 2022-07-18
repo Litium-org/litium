@@ -10,7 +10,7 @@ function firstFile()
 end
 
 function start()
-    litsystem.setName("Litium [BETA] v0.3 - Jadeite")
+    litsystem.setName("Litium [BETA] v0.4 - Ruby")
 
     Timer = 0
     frame = 1

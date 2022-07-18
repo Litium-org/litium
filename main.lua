@@ -1,3 +1,4 @@
+love.setDeprecationOutput(false)
 
 function love.load()
     nativelocks         = require 'src/native/engine/core/nativelocks'
@@ -16,7 +17,7 @@ function love.load()
     love.keyboard.setKeyRepeat(true)
 
     -- engine version system
-    engineVersion = "0.0.3"
+    engineVersion = "0.0.4"
     code, serverEngineVersion = request.newRequest("https://raw.githubusercontent.com/Litium-org/litium/master/.litversion")
 
     nativelocks.lock()
@@ -54,20 +55,23 @@ function love.load()
     end
 
     pcall(imagedata(), start())
+    pluginmanager.loadPlugins()
 end
 
 function love.draw()
     litgraphics.clearScreen()
     pcall(imagedata(), render())
-    pluginmanager.loadPlugins()
+    pluginmanager.renderContent()
 end
 
 function love.update(dt)
     pcall(imagedata(), update(dt))
+    pluginmanager.updatePlugins(dt)
 end
 
 function love.keypressed(k, scancode, isRepeat)
     pcall(imagedata(), keydown(k))
+    pluginmanager.listenForKeyDown(k)
 
     -- callback if specific keys pressed
     if k == "home" then
@@ -84,4 +88,5 @@ end
 
 function love.keyrelease(k)
     pcall(imagedata(), keyup(k))
+    pluginmanager.listenForKeyUp(k)
 end

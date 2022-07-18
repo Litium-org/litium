@@ -2,7 +2,7 @@ function start()
     settings = require 'src/native/engine/core/file_reader'
     lang = settings.getvalue("engine.lua", "bios_language")
 
-    litsystem.setName("Litium [BETA] v0.3 - Jadeite [OUTDATED ENGINE]")
+    litsystem.setName("Litium [BETA] v0.4 - Rubt [OUTDATED ENGINE]")
 
     sprPallete = {
         {0,0,0,0},      -- transparent color

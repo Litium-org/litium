@@ -4,7 +4,12 @@ language = {
             line1 = "no game has been loaded",
             line2 = "Please insert a valid disk game",
             bootSelect = "press delete to select a game",
+            pluginSelect = "press insert to open plugins menu",
             outdatedVersion = "This version is outdated"
+        },
+        pluginsList = {
+            title = "plugins installed",
+            noPlugins = "no plugins installed"
         },
         firstBoot = {
             line1 = "welcome",

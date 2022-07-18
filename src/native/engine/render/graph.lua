@@ -81,4 +81,35 @@ function rendercore.rect(x, y, w, h, colorid, fillType)
     rect(fillType, x, y, w, h)
 end
 
+function rendercore.windowColor(colorid)
+    RectColor = {
+        {0,0,0,0},
+        {0,0,0},        -- 1
+        {0.5,0.5,0.5},
+        {1,1,1},
+        {1,0,0},
+        {0,1,0},
+        {0,0,1},
+        {1,1,0},
+        {0,1,1},
+        {1,0,1},
+        {0.5,0,0},
+        {0,0.5,0},
+        {0,0,0.5},
+        {0.5,0.5,0},
+        {0,0.5,0.5},
+        {0.5,0,0.5},
+        {0.8,0,0},
+        {0,0.8,0},
+        {0,0,0.8},
+        {0.8,0.8,0},
+        {0,0.8,0.8},
+        {0.8,0,0.8},
+        {0.8,0.8,0.8}
+    }
+
+    setColor(RectColor[colorid])
+    rect("fill", 0, 0, 1280, 768)
+end
+
 return rendercore

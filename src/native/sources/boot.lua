@@ -1,11 +1,14 @@
 function start()
 
-    state = 1
-    Ymax = nil
+    state = "loader"
+    Ymax = 0
 
     selection = 1
 
     noDisks = false
+    noPlugins = false
+    isPluginPageEnable = false
+    biosSplashTimer = 0
 
 scriptContent = [[
 function start()
@@ -33,8 +36,9 @@ end
     diskcheck = require 'src/native/engine/loader/diskcheck'
     lang = settings.getvalue("engine.lua", "bios_language")
     diskList = diskcheck.init()
+    pluginsList = diskcheck.plugins()
 
-    litsystem.setName("Litium [BETA] v0.3 - Jadeite [NO GAME LOADED]")
+    litsystem.setName("Litium [BETA] v0.4 - Ruby [NO GAME LOADED]")
 
     sprPallete = {
         {0,0,0,0},      -- transparent color
@@ -80,6 +84,23 @@ end
         {1,1,1,1,2,1,1,1,1},
     }
 
+    pluginPallete = {
+        {0,0,0,0},
+        {1,1,1},
+        {255, 255, 255}
+    }
+    pluginIcon = {
+        {1,3,1,1,1,3,1},
+        {1,3,1,1,1,3,1},
+        {3,3,3,3,3,3,3},
+        {3,3,3,3,3,3,3},
+        {1,3,3,3,3,3,1},
+        {1,1,1,3,1,1,1},
+        {1,1,1,3,1,1,1},
+        {1,1,1,1,3,1,1},
+        {1,1,1,1,3,1,1},
+    }
+
     shine = {
         {
             {1,1,1},
@@ -114,16 +135,36 @@ end
     
     litgraphics.loadPallete(sprPallete)
     heart = settings.getvalue("engine.lua", "bios_heart")
+    isSplashActive = settings.getvalue("engine.lua", "bios_splash")
 
     -- version Check
     engineVer = settings.getvalue("engine.lua", "bios_version")
     code, serverEngineVersion = request.newRequest("https://raw.githubusercontent.com/Litium-org/litium/master/.litversion")
 
     isOutdated = versionCheck.doCheck(engineVer, serverEngineVersion)
+
+    --print(diskList[1])
 end
 
 function render()
-    if state == 1 then
+    if state == "loader" then
+        if isSplashActive then
+            if biosSplashTimer >= 120 then
+                if not heart or heart == nil then
+                    litgraphics.newSprite(logo, 16, 60, 60)
+                else
+                    litgraphics.newSprite(Heart, 16, 60, 60, heartPallete)
+                end
+            end
+            if biosSplashTimer >= 70 then
+                litgraphics.newText("Powered with litium", 70, 200, 5, 3, 1)
+            end
+        else
+            state = "boot"
+        end
+    end
+    
+    if state == "boot" then
         litgraphics.rect(0, 0, 1280, 768, 3, "fill")
         litgraphics.rect(0, 0, 1280, 18, 23, "fill")
             
@@ -151,6 +192,8 @@ function render()
         litgraphics.newText(language[lang].noDisk.line2, 230, 390, 4, 3, 1)
         litgraphics.newText(language[lang].noDisk.bootSelect, 10, 734, 3, 1, 1)
         litgraphics.newText(language[lang].noDisk.bootSelect, 10, 730, 3, 3, 1)
+        litgraphics.newText(language[lang].noDisk.pluginSelect, 10, 704, 3, 1, 1)
+        litgraphics.newText(language[lang].noDisk.pluginSelect, 10, 700, 3, 3, 1)
         litgraphics.newSprite(shine[frame], 8, 290, 190, heartPallete)
         litgraphics.newSprite(shine[frame], 8, 340, 70, heartPallete)
         litgraphics.newSprite(shine[frame], 8, 20, 50, heartPallete)
@@ -158,7 +201,7 @@ function render()
         litgraphics.newSprite(shine[frame], 8, 180, 290, heartPallete)
     end
 
-    if state == 2 then
+    if state == "disks" then
         litgraphics.newText(language[lang].bootSelection.title, 10, 10, 5, 3, 1)
         litgraphics.newText(language[lang].bootSelection.description, 10, 80, 3, 3, 1)
         litgraphics.newText(language[lang].bootSelection.back, 10, 730, 3, 3, 1)
@@ -174,10 +217,32 @@ function render()
             noDisks = true
         end
     end
+
+    if isPluginPageEnable then
+        litgraphics.rect(0, 0, 360, Ymax + 40, 2, "fill")
+        litgraphics.newText(language[lang].pluginsList.title, 0, 10, 3, 3, 1)
+        litgraphics.newSprite(pluginIcon, 3, 325 ,0, pluginPallete)
+        if noPlugins then
+            litgraphics.newText(language[lang].pluginsList.noPlugins, 10, 10, 3, 3, 1)
+        end
+        if #pluginsList ~= 0 then
+            noPlugins = false
+            renderPluginList()
+        else
+            print(#pluginsList)
+            noPlugins = true
+        end
+    end
 end
 
 function update(dt)
-    if state == 1 then
+    if state == "loader" then
+        biosSplashTimer = biosSplashTimer + 1
+        if biosSplashTimer > 270 then
+            state = "boot"
+        end
+    end
+    if state == "boot" then
         Timer = Timer + 1
         if Timer > 10 then
             Timer = 0
@@ -190,13 +255,18 @@ function update(dt)
                 txtFrame = 1
             end
         end
+        if litinput.isKeyDown("insert") then
+            isPluginPageEnable = true
+        else
+            isPluginPageEnable = false
+        end
     end
-    if state == 2 then
+    if state == "disks" then
     end
 end
 
 function keydown(k)
-    if state == 1 then
+    if state == "boot" then
         if k == "1" then
             litfilesystem.newDir("projects/newGame")
             file = litfilesystem.createFile("projects/newGame/main.lua")
@@ -205,12 +275,12 @@ function keydown(k)
             file:close()
         end
         if k == "delete" then
-            state = 2
+            state = "disks"
         end
     end
-    if state == 2 then
+    if state == "disks" then
         if k == "escape" then
-            state = 1
+            state = "boot"
         end
 
         -- cursor control
@@ -243,7 +313,9 @@ function keydown(k)
     end
 end
 
-function keyup(k)end
+function keyup(k)
+
+end
 
 function renderDiskList()
     y = 200
@@ -252,6 +324,19 @@ function renderDiskList()
 
         y = y + 40
         li = li + 1
+    end
+    Ymax = y - 40
+end
+
+function renderPluginList()
+    y = 100
+    for pli = 1, #pluginsList do
+        if pli < 11 then
+            litgraphics.newText(tostring(pluginsList[pli]):gsub("%.lua", ""), 25, y, 3, 3, 1)
+            litgraphics.newSprite(pluginIcon, 2, 0, y + 3, pluginPallete)
+            y = y + 40
+            pli = pli + 1
+        end
     end
     Ymax = y - 40
 end
