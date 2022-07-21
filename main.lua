@@ -1,5 +1,4 @@
 love.setDeprecationOutput(false)
-
 function love.load()
     nativelocks         = require 'src/native/engine/core/nativelocks'
     imageloader         = require 'src/native/engine/loader/imageloader'
@@ -61,17 +60,14 @@ end
 function love.draw()
     litgraphics.clearScreen()
     pcall(imagedata(), render())
-    pluginmanager.renderContent()
 end
 
 function love.update(dt)
     pcall(imagedata(), update(dt))
-    pluginmanager.updatePlugins(dt)
 end
 
 function love.keypressed(k, scancode, isRepeat)
     pcall(imagedata(), keydown(k))
-    pluginmanager.listenForKeyDown(k)
 
     -- callback if specific keys pressed
     if k == "home" then
@@ -84,9 +80,16 @@ function love.keypressed(k, scancode, isRepeat)
             end
         end
     end
+    if k == "end" then
+        if isRepeat then
+            btnPressedCount = btnPressedCount + 1
+            if btnPressedCount > 20 then
+                litgame.quit()
+            end
+        end
+    end
 end
 
 function love.keyrelease(k)
     pcall(imagedata(), keyup(k))
-    pluginmanager.listenForKeyUp(k)
 end

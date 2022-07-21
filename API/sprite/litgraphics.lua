@@ -41,6 +41,12 @@ function litgraphics.rect(xp, yp, wt, ht, color, fill)
     rendercore.rect(xp, yp, wt, ht, color, fill)
 end
 
+--- Set the window color
+---@param colorid number
+function litgraphics.windowColor(colorid)
+    rendercore.windowColor(colorid)
+end
+
 --- Clear screen content
 ---@return nil
 function litgraphics.clearScreen()

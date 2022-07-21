@@ -11,8 +11,7 @@ function text.drawStr(Textstr, x, y, FontSize, txtColor, bgColorId)
     strNum = tostring(Textstr)
     textOutput = string.lower(strNum)
 
-    letters = "abcdefghijklmnopqrstuvwxyz0123456789 "
-
+    --letters = tostring([[abcdefghijklmnopqrstuvwxyz0123456789 !=$(),.:;+-/|]])
     letterSize = font.FontLetterSize
 
     textX = x
@@ -21,9 +20,10 @@ function text.drawStr(Textstr, x, y, FontSize, txtColor, bgColorId)
     for i = 1, #Textstr do
 
         char = textOutput:sub(i, i) -- this gets the current letter of whatever number we are in the loop
-        num = letters:find(char) -- this returns the position of char in our letters string.
 
-        drawCall(font[num], FontSize, textX, textY, txtColor, bgColorId)
+        --num = letters:find(char) -- this returns the position of char in our letters string.
+        --print(char, num, #font[char])
+        drawCall(font[char], FontSize, textX, textY, txtColor, bgColorId)
 
         textX = textX + (FontSize * letterSize)
     end

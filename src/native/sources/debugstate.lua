@@ -1,4 +1,5 @@
 function start()
+    
     pluginPallete = {
         {0,0,0,0},
         {1,1,1},
@@ -20,6 +21,7 @@ function start()
 end
 
 function render()
+    litgraphics.newText("", 200, 100, 5, 4, 1)
     litgraphics.newSprite(pluginIcon, 5, 90 ,90)
 end
 

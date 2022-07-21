@@ -165,8 +165,10 @@ function render()
     end
     
     if state == "boot" then
-        litgraphics.rect(0, 0, 1280, 768, 3, "fill")
+        litgraphics.windowColor(3)
         litgraphics.rect(0, 0, 1280, 18, 23, "fill")
+
+        litwindow.popup(390, 90, 256, 96, "teste", "sadadadaddaada")
             
         if not heart or heart == nil then
             litgraphics.newSprite(logo, 16, 60, 60)
