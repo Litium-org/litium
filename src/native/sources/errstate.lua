@@ -40,13 +40,9 @@ function update(dt)
     
 end
 
-function keydown(k)
+function keydown(k, code)
     if k == "return" then
         imageloader.changeImageName("-native")
         litgame.restart()
     end
-end
-
-function keyup(k)
-    
 end

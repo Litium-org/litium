@@ -67,7 +67,7 @@ function love.update(dt)
 end
 
 function love.keypressed(k, scancode, isRepeat)
-    pcall(imagedata(), keydown(k))
+    pcall(imagedata(), keydown(k, scancode))
 
     -- callback if specific keys pressed
     if k == "home" then
@@ -88,8 +88,4 @@ function love.keypressed(k, scancode, isRepeat)
             end
         end
     end
-end
-
-function love.keyrelease(k)
-    pcall(imagedata(), keyup(k))
 end

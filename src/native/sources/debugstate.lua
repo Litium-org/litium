@@ -21,7 +21,7 @@ function start()
 end
 
 function render()
-    litgraphics.newText("", 200, 100, 5, 4, 1)
+    litgraphics.newText("<xml/>", 200, 100, 5, 4, 1)
     litgraphics.newSprite(pluginIcon, 5, 90 ,90)
 end
 
@@ -29,10 +29,6 @@ function update(dt)
 
 end
 
-function keydown(k)
-
-end
-
-function keyup(k)
+function keydown(k, code)
 
 end

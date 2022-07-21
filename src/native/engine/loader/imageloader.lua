@@ -82,7 +82,7 @@ function imageloader.getImage()     --get operating system name image (folder)
     gameName = imageFileName:read()
     data = engineConfigFile()
 
-    if not verbmode then
+    if not verbmode or verbmode == nil then
         if gameName == "nil" or gameName == nil or gameName == "" or gameName == "-native" then
             if exist("file", "firstboot.txt") then
                 imagedata, err = load("src/native/sources/boot.lua")

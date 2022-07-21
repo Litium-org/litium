@@ -26,10 +26,6 @@ end
 function keydown(k)
     -- called when key is down --
 end
-
-function keyup(k)
-    -- called when key is up --
-end
 ]]
 
     settings = require 'src/native/engine/core/file_reader'
@@ -267,7 +263,7 @@ function update(dt)
     end
 end
 
-function keydown(k)
+function keydown(k, code)
     if state == "boot" then
         if k == "1" then
             litfilesystem.newDir("projects/newGame")
@@ -313,10 +309,6 @@ function keydown(k)
             litgame.restart()
         end
     end
-end
-
-function keyup(k)
-
 end
 
 function renderDiskList()

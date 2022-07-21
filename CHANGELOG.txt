@@ -24,3 +24,20 @@ Changelogs
 - litgraphics.loadSpriteFile() now supports Json with indentation
 - litsound.playTrackFromFile() supports indentation
 - Added version checker system (make sure to connect to internet to do this verification)
+
+ - {0.0.4} [Ruby]
+
+- API Updates
+- (WIP) Plugin calls
+- Plugins improvement
+- Verbose mode
+- Added more symbols to text render
+- KeyUp() Function removed
+- KeyDown added new parameter "code" = KeyDown(k, code)
+- Shutdown button, hold "end" button for a few seconds to shutdown the litium
+
+-=[ Core Changes (for developers)]=-
+
+- TextRender was removed some functions
+- Font script added more chars and how it will work
+- Keyboard driver

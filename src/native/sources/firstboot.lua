@@ -74,6 +74,4 @@ function update(dt)
     end
 end
 
-function keydown(k)end
-
-function keyup(k)end
+function keydown(k, code)end

@@ -69,7 +69,7 @@ function update(dt)
 
 end
 
-function keydown(k)
+function keydown(k, code)
     if k == "return" then
         love.system.openURL("https://github.com/Litium-org/litium/releases")
     end
@@ -77,8 +77,4 @@ function keydown(k)
         imageloader.changeImageName("-native")
         litgame.restart()
     end
-end
-
-function keyup(k)
-
 end

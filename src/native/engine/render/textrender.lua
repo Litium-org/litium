@@ -11,7 +11,7 @@ function text.drawStr(Textstr, x, y, FontSize, txtColor, bgColorId)
     strNum = tostring(Textstr)
     textOutput = string.lower(strNum)
 
-    --letters = tostring([[abcdefghijklmnopqrstuvwxyz0123456789 !=$(),.:;+-/|]])
+    --letters = tostring([[abcdefghijklmnopqrstuvwxyz0123456789 !=$(),.:;+-/|<>?[]]])
     letterSize = font.FontLetterSize
 
     textX = x
