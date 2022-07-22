@@ -1,9 +1,13 @@
 #!/bin/bash
-## update on run
-##
+## Satisfy dependencies
+## Update on run
 ## Tests about standalone executables (incomplete)
 ##
-git submodules init update
+git submodule init update
+# lua-https module (love)
+cmake -Bbuild -S. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$PWD\install
+cmake --build build --target install
+
 update(){
         CURRENT_VERS=$(cat ".litversion")
         GITHUB_VERS=$(curl "https://raw.githubusercontent.com/Litium-org/litium/master/.litversion")
@@ -27,9 +31,9 @@ compile(){
 }
 update
 echo "Compiling..."
-if [ !compile ] 
+if [ !compile ]
 then
         echo "Build unsuccessful"
-else    
+else
         echo "Build finished successfully"
 fi

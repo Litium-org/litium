@@ -27,7 +27,7 @@ dependency </p>
 ### Arch based
 > sudo pacman -S love
 ### Debian
-> sudo apt install love
+> sudo apt-get install love
 ### Fedora
 > sudo dnf install love
 
