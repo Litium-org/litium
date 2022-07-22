@@ -1,8 +1,8 @@
 .gitignore
 push.lua
 push.cmd
-build.sh
 building_base
 
 #directories
 build/linux
+build/lua-https
