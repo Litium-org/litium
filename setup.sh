@@ -2,8 +2,14 @@
 ## Satisfy dependencies
 ## Update on run
 ## Tests about standalone executables (incomplete)
-##
+
+# constants
+readonly WORKING_DIRECTORY=$(pwd)
+
+
+# init/update submodules
 git submodule init update
+
 # lua-https module (love)
 cmake -Bbuild -S. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$PWD\install
 cmake --build build --target install
