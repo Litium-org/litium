@@ -25,11 +25,25 @@ You can download this source code and build it on your machine.
 dependency </p>
 
 ### Arch based
-> sudo pacman -S love
+```
+sudo pacman -S love
+```
 ### Debian
-> sudo apt install love
+```
+sudo apt-get install love
+```
 ### Fedora
-> sudo dnf install love
+```
+sudo dnf install love
+```
+<p> <h3> How to execute </h3> 
+Change shell script file permission
+
+```
+sudo chmod u+x build.sh 
+```
+</p>
+
 
 # Contributions
 You can contribute with the development of engine by clonning this repository with the most recent version of code and make your changes.

@@ -41,3 +41,4 @@ Changelogs
 - TextRender was removed some functions
 - Font script added more chars and how it will work
 - Keyboard driver
+- Linux building tools and assist

@@ -1,0 +1,5 @@
+hey!
+se existir alguma rede social do projeto ou uma comunidade,
+adiciona no README, vai ajudar em manter contato.
+
+https://github.com/carlsednaoui/gitsocial
