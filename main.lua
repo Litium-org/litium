@@ -76,7 +76,7 @@ function love.keypressed(k, scancode, isRepeat)
             btnPressedCount = btnPressedCount + 1
             if btnPressedCount > 20 then
                 imageloader.changeImageName("-native")
-                love.event.quit("restart")
+                litgame.restart()
             end
         end
     end
@@ -85,6 +85,15 @@ function love.keypressed(k, scancode, isRepeat)
             btnPressedCount = btnPressedCount + 1
             if btnPressedCount > 20 then
                 litgame.quit()
+            end
+        end
+    end
+    if k == "v" then
+        if isRepeat then
+            btnPressedCount = btnPressedCount + 1
+            if btnPressedCount > 20 then
+                imageloader.changeImageName("-verbose")
+                litgame.restart()
             end
         end
     end
