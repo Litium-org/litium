@@ -78,9 +78,6 @@ function litshell.command(command)
                 file:close()
             end
         end
-        if cmd[2] == "format" then
-            deleteAllProjects()
-        end
         if cmd[2] == "list" then
             dirs = diskcheck.getProjects()
             print(dirs)
@@ -144,15 +141,6 @@ end
 function printCMDList()
     for i = 1, #cmd, 1 do
         print(cmd[i])
-    end
-end
-
-function deleteAllProjects()
-    projdir = diskcheck.getProjects()
-    for i = 1, #projdir do
-        print(projdir[i])
-        love.filesystem.remove("projects/" .. projdir[i])
-        i = i + 1
     end
 end
 
