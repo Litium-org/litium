@@ -163,8 +163,6 @@ function render()
     if state == "boot" then
         litgraphics.windowColor(3)
         litgraphics.rect(0, 0, 1280, 18, 23, "fill")
-
-        litwindow.popup(390, 90, 256, 96, "teste", "sadadadaddaada")
             
         if not heart or heart == nil then
             litgraphics.newSprite(logo, 16, 60, 60)
@@ -265,6 +263,7 @@ end
 
 function keydown(k, code)
     if state == "boot" then
+        --[[
         if k == "1" then
             litfilesystem.newDir("projects/newGame")
             file = litfilesystem.createFile("projects/newGame/main.lua")
@@ -272,6 +271,7 @@ function keydown(k, code)
             file:write(scriptContent)
             file:close()
         end
+        ]]--
         if k == "delete" then
             state = "disks"
         end

@@ -18,4 +18,7 @@ function litfilesystem.readFile(file)
     return love.filesystem.read(file)
 end
 
+function litfilesystem.open()
+end
+
 return litfilesystem

@@ -18,6 +18,18 @@ function diskcheck.init()
     end
 end
 
+function diskcheck.getProjects()
+    if utils.exist("directory", "projects") then
+        projects = love.filesystem.getDirectoryItems("projects")
+
+        if projects == 0 then
+            return false
+        else  
+            return projects
+        end
+    end
+end
+
 function diskcheck.plugins()
     Plugins = {}
     if utils.exist("directory", "plugins") then

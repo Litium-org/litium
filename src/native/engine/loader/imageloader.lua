@@ -14,7 +14,6 @@ return {
     bios_language = "en",
     bios_splash = true,
     bios_enablePlugins = true,
-    bios_verbose = false
 }
 ]]
 
@@ -82,7 +81,6 @@ function imageloader.getImage()     --get operating system name image (folder)
     gameName = imageFileName:read()
     data = engineConfigFile()
 
-    if not verbmode or verbmode == nil then
         if gameName == "nil" or gameName == nil or gameName == "" or gameName == "-native" then
             if exist("file", "firstboot.txt") then
                 imagedata, err = load("src/native/sources/boot.lua")
@@ -123,14 +121,15 @@ function imageloader.getImage()     --get operating system name image (folder)
                 error(err, 2)
             end
         end
-    else
-        imagedata, err = load("src/native/sources/verbosemode.lua")
+        if gameName == "-verbose" then
+            imagedata, err = load("src/native/sources/verbosemode.lua")
     
-        if imagedata == nil then
+            if imagedata == nil then
                 
-            error(err, 2)
-         end
-    end
+                error(err, 2)
+            end
+        end
+        
     
 
     return imagedata
