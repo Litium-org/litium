@@ -32,7 +32,7 @@ sudo pacman -S love lua5.1
 ```
 sudo apt-get install love lua5.1
 ```
-<sub><sup>*: Not tested</sup></sub>
+<sub>*: Not tested</sub>
 ### Fedora, CentOs, RPM package based
 ```
 sudo dnf install love lua5.1
@@ -43,7 +43,7 @@ Change shell script file permission
 ```
 sudo chmod u+x build.sh setup.sh 
 ```
-<sub><sup>*: u+x args make the file executable only for the user</sup></sub>
+<sub>*: u+x args make the file executable only for the user</sub>
 <br>
 Then run setup.sh
 ```
