@@ -5,4 +5,5 @@ function love.conf(w)
     w.console               =       true
     w.identity              =       "litium"
     w.window.resizable      =       false 
+    w.version               =       "11.4"
 end
