@@ -14,7 +14,7 @@ You can download this source code and build it on your machine.
 
 ### STATBILITY WARNING:
 > This project is constantly development, so scripts and functions can be added, removed, renamed or moved to other parts, please check for the most recently version of source to not have compatibility issues.
-
+	
 ## Building Windows
 - [ 1 ] - Make sure you have Love2D 11.4 Mysterious Mysteries installed and setup with %path%, to see if you have set up correclty open your terminal and type "love" if it open a screen with no game means it all working correctly.
 
@@ -32,10 +32,10 @@ sudo pacman -S love lua5.1
 ```
 sudo apt-get install love lua5.1
 ```
-<sub>*: Not tested</sub>
+<sub>* Not tested</sub>
 ### Fedora, CentOs, RPM package based
 ```
-sudo dnf install love lua5.1
+sudo dnf install love lua5.1 lua-devel lua5.1-devel libcurl-devel
 ```
 <p> <h3> How to execute </h3> 
 Change shell script file permission
@@ -43,7 +43,8 @@ Change shell script file permission
 ```
 sudo chmod u+x build.sh setup.sh 
 ```
-<sub>*: u+x args make the file executable only for the user</sub>
+<sub>* u+x args make the file executable only for the user</sub>
+<br>
 <br>
 Then run setup.sh
 ```
