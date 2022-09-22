@@ -26,24 +26,30 @@ dependency </p>
 
 ### Arch based
 ```
-sudo pacman -S love
+sudo pacman -S love lua5.1
 ```
 ### Debian
 ```
-sudo apt-get install love
+sudo apt-get install love lua5.1
 ```
-### Fedora
+<sub><sup>*: Not tested</sup></sub>
+### Fedora, CentOs, RPM package based
 ```
-sudo dnf install love
+sudo dnf install love lua5.1
 ```
 <p> <h3> How to execute </h3> 
 Change shell script file permission
 
 ```
-sudo chmod u+x build.sh 
+sudo chmod u+x build.sh setup.sh 
+```
+<sub><sup>*: u+x args make the file executable only for the user</sup></sub>
+<br>
+Then run setup.sh
+```
+./setup.sh
 ```
 </p>
-
 
 # Contributions
 You can contribute with the development of engine by clonning this repository with the most recent version of code and make your changes.

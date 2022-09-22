@@ -3,14 +3,10 @@
 #
 ## Satisfy dependencies
 ## Update on run
-## Tests about standalone executables (incomplete)
+## Compilation
 
 # constructors
-if [ ! -d build/linux/lua_version ]
-then
-	mkdir build/linux/
-fi
-LUA_VERS=$(lua -v > build/linux/lua_version | awk '{ print substr($2,1,3)}' build/linux/lua_version)
+LUA_VERS=$(lua -v > build/lua_version | awk '{ print substr($2,1,3)}' build/lua_version)
 LUA_HTTPS="/usr/lib/lua/$LUA_VERS/"
 
 # constants, fell free to change
@@ -27,9 +23,15 @@ git submodule update --init
 lua-https() {
         echo -e "${GREEN}[$(date +"%H:%M")]:${NC} Building lua-https..."
         cd lib/lua-https/
-        cmake -B build -S. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$PWD\install
+        #cmake error handling
+        if cmake -B build -S. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$PWD\install ; then
+        	echo -e "${GREEN}[$(date +"%H:%M")]:${NC} yes yes"
+        else
+        	echo -e "${GREEN}[$(date +"%H:%M")]:${NC} FVVVVVVVCK, quitting"
+        	exit
+        fi
         cmake --build build --target install
-        cd $WORKING_DIRECTORY
+        cd ..
 
         # to general use
         echo -e "${GREEN}[$(date +"%H:%M")]:${NC} sudo password needed to copy lib file to ${YELLOW}$LUA_HTTPS ${NC}and ${YELLOW}/usr/lib/lua/5.1/"
@@ -44,9 +46,18 @@ lua-https() {
         cd $WORKING_DIRECTORY
 }
 
-if [ -s build/lua-https/done.txt ]
+if [ -s lib/lua-https/done.txt ]
 then
         echo -e "${GREEN}[$(date +"%H:%M")]:${NC} Module lua-htpps already installed"
+        while true; do
+   		read -p "Do you wish to install anyway? [Y/n] " yn
+    		case $yn in
+        		[Yy]* ) lua-https; break;;
+        		[Nn]* ) exit;;
+        	* ) echo "Please answer yes or no.";;
+    		esac
+	done
+
 else
         lua-https
 fi
@@ -71,4 +82,4 @@ compile(){
 
 #func calls
 update
-compile
+#compile
