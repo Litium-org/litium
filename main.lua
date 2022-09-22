@@ -17,7 +17,15 @@ function love.load()
 
     -- engine version system
     engineVersion = "0.0.4"
-    code, serverEngineVersion = request.newRequest("https://raw.githubusercontent.com/Litium-org/litium/master/.litversion")
+    serverEngineVersion = ""
+    function requestFunction()
+        code, serverEngineVersion = request.newRequest("https://raw.githubusercontent.com/Litium-org/litium/master/.litversion")
+    end
+    if pcall(requestFunction) then
+        print(serverEngineVersion)
+    else
+        serverEngineVersion = engineVersion
+    end
 
     nativelocks.lock()
 

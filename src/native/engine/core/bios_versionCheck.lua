@@ -3,6 +3,8 @@ versionCheck = {}
 stringx = require 'pl/stringx'
 
 function versionCheck.doCheck(version1, version2)
+    print(version1)
+    print(version2)
     -- get the engine vcurrent version lol
     _version1 = stringx.split(version1, ".")
     -- get internet version
